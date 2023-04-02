@@ -1,0 +1,81 @@
+
+(rules PCB W5100S-EVB-Pico-Breakout
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 1202)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.7)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.6)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 200.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 50.0 (type smd_smd))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    GND +3.3V GPIO10 GPIO2 GPIO26 +5V GPIO7 GPIO3
+    GPIO4 GPIO5 GPIO6 GPIO8 GPIO9 GPIO0 GPIO1 GPIO13
+    GPIO14 GPIO15 "unconnected-(U1-GPIO16-Pad21)" "Net-(Led4-Pin_2)" "unconnected-(U1-GPIO18-Pad24)" "unconnected-(U1-GPIO19-Pad25)" "unconnected-(U1-GPIO20-Pad26)" "unconnected-(U1-GPIO21-Pad27)"
+    "unconnected-(U1-GPIO22-Pad29)" "unconnected-(U1-RUN-Pad30)" GPIO11 "unconnected-(U1-GPIO27_ADC1-Pad32)" "unconnected-(U1-AGND-Pad33)" "unconnected-(U1-GPIO28_ADC2-Pad34)" "unconnected-(U1-ADC_VREF-Pad35)" "unconnected-(U1-3V3_EN-Pad37)"
+    "unconnected-(U1-VSYS-Pad39)" "unconnected-(U1-GPIO12-Pad16)" +12V "Net-(Q1-B)" "Net-(PIR1-Pin_1)" GPIO22 "Net-(J1-Pin_6)" "Net-(J1-Pin_2)"
+    "Net-(J1-Pin_4)" "unconnected-(U1-GND-Pad8)" "unconnected-(U1-GND-Pad13)" "unconnected-(U1-GND-Pad18)" "unconnected-(U1-GND-Pad23)" "unconnected-(U1-GND-Pad28)" "unconnected-(U1-GND-Pad38)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
